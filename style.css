@@ -1,0 +1,354 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: none;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* Intro Screen */
+#intro {
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.intro-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.gamepad-icon {
+  margin-bottom: 1.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.intro-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.intro-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.start-button {
+  background: white;
+  color: #6366f1;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Main Screen */
+#main {
+  background: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.interactive-areas {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.area {
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.area:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.area-indicator {
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.area:hover .area-indicator {
+  opacity: 1;
+}
+
+.left .area-indicator {
+  left: 2rem;
+}
+
+.right .area-indicator {
+  right: 2rem;
+}
+
+/* Cards */
+#cardsContainer {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 450px;
+  perspective: 2000px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s;
+}
+
+.card.zoomed .card-inner {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Card Colors */
+.contact {
+  background: linear-gradient(135deg, #ec4899, #ef4444);
+}
+
+.projects {
+  background: linear-gradient(135deg, #f97316, #dc2626);
+}
+
+.skills {
+  background: linear-gradient(135deg, #22c55e, #14b8a6);
+}
+
+.about {
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+}
+
+/* Card Content Styles */
+.profile-content {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  border: 4px solid white;
+  margin: 1rem auto;
+}
+
+.skills-grid {
+  margin-bottom: 5rem;
+  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.skill-item {
+  top: 0px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.projects-list {
+  top: 0px;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-item {
+  top: 10%;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(4px);
+}
+
+.contact-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+  justify-content: start;
+}
+
+.contact-email {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  text-decoration: none;
+  color: white;
+}
+
+.social-links {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2r);
+  gap: 1rem;
+}
+
+.social-link {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  text-decoration: none;
+  color: white;
+  justify-content: center;
+  display: flex;
+}
+
+.zoom-out-button {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.zoom-out-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Hover effect for card links */
+.card a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  color: #0077b6;
+}
+
+.area-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Or if you want to remove the entire visual feedback */
+.area {
+  background: transparent;
+}
+
+.area:hover {
+  background: transparent;
+}
