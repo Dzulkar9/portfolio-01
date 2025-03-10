@@ -16,6 +16,7 @@ const cards = [
           Full-stack developer with a passion for creating interactive experiences.
           I specialize in HTML, CSS, and little  JavaScript.
         </p>
+        <div class='dcv' ><button class="btn download-cv-button">Download CV</button></div>
       </div>
     `
   },
