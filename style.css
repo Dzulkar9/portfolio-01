@@ -339,16 +339,72 @@ body {
   color: #0077b6;
 }
 
-.area-indicator {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Or if you want to remove the entire visual feedback */
 .area {
   background: transparent;
 }
 
 .area:hover {
   background: transparent;
+}
+
+/* Responsive Page */
+@media screen and (max-width: 768px) {
+  #cardsContainer {
+    width: 280px;
+    height: 400px;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .profile-image {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 0.5fr;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1rem;
+  }
+
+  .skill-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .social-link {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-email {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #cardsContainer {
+    width: 260px;
+    height: 380px;
+  }
+
+  .card-inner {
+    padding: 1rem;
+  }
 }
