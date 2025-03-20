@@ -211,15 +211,3 @@ function createCard(data) {
   
   return card;
 }
-
-// copyright
-const copyright = document.createElement('div');
-copyright.className = 'copyright';
-copyright.innerHTML = '© 2025 Lutfi Fikar Dzulkarnain. All rights reserved.';
-copyright.style.position = 'fixed';
-copyright.style.bottom = '20px';
-copyright.style.left = '50%';
-copyright.style.transform = 'translateX(-50%)';
-copyright.style.zIndex = '1000';
-copyright.style.color = '#fff';
-document.body.appendChild(copyright);
