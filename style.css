@@ -335,7 +335,7 @@ body {
 .zoom-out-button {
   position: fixed;
   left: 50%;
-  bottom: 2rem;
+  bottom: 4rem;
   transform: translateX(-50%);
   z-index: 1000;
   padding: 0.75rem 1.5rem;
@@ -379,11 +379,26 @@ body {
   background: transparent;
 }
 
+footer {
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 99999;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* Responsive Page */
 @media screen and (max-width: 768px) {
   #cardsContainer {
     width: 280px;
     height: 400px;
+  }
+
+  .zoom-out-button {
+    bottom: 5rem;
   }
 
   .card-title {
@@ -434,6 +449,10 @@ body {
   #cardsContainer {
     width: 260px;
     height: 380px;
+  }
+
+  .zoom-out-button {
+    bottom: 6rem;
   }
 
   .card-inner {
